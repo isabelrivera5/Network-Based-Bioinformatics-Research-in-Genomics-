@@ -41,9 +41,11 @@ tstlist6 <- keggConv("genes", unlist(tstlist3), querySize = 100)
 
 
 ## We then take the resulting kegg ids from the previous function and convert them into KO ids with the Kegglink function 
+listofkoids <- list()
 for (i in unlist(tstlist5)) {
 
-  listofkoids <- c(listofkoids, keggLink("ko", tstlist5[[i]]))
+  listofkoids <- c(listofkoids, keggLink("ko", i[[1]]))
   
-  
+
 }
+
