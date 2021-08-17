@@ -31,16 +31,21 @@ tstlist6 <- list()
 
 
 ## This way will let you see the progress of the function
-for (i in unlist(tstlist3)) {
-  
- tstlist5 <- c(tstlist5, keggConv("genes", i, querySize = 100))
-}
+# for (i in unlist(tstlist3)) {
+#   
+#  tstlist5 <- c(tstlist5, keggConv("genes", i, querySize = 100))
+# }
 
-## This way is more direct, possibly faster but you will not know how fast it is executing 
+
+
+
+## This way is more direct, possibly faster but you will not know how fast it is executing #################
 
 ## Lets test with a small sub-sample to see how fast
-tstlist4 <- as.data.frame(as.character(tstlist3[1:100,]))
-tstlist6 <- keggConv("genes", unlist(tstlist4), querySize = 100)
+##tstlist4 <- as.data.frame(as.character(tstlist3[1:100,]))
+##tstlist6 <- keggConv("genes", unlist(tstlist4), querySize = 100)
+
+tstlist6 <- keggConv("genes", unlist(tstlist3), querySize = 100)
 
 
 ## We then take the resulting kegg ids from the previous function (depending on which method you used it will either be
@@ -48,11 +53,12 @@ tstlist6 <- keggConv("genes", unlist(tstlist4), querySize = 100)
 ## and convert them into KO ids with the Kegglink function 
 listofkoids <- list()
 
-## Here we use tstlist5
-for (i in unlist(tstlist5)) {
+## Here we use tstlist6
+for (i in unlist(tstlist6)) {
 
   listofkoids <- c(listofkoids, keggLink("ko", i[[1]]))
   
 
 }
+
 
