@@ -58,7 +58,4 @@ for (i in unlist(tstlist6)) {
 
   listofkoids <- c(listofkoids, keggLink("ko", i[[1]]))
   
-
 }
-
-
