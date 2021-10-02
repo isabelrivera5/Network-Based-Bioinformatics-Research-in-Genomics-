@@ -1,5 +1,5 @@
-## The following section of this script will provide a list of Kegg Ids, which were original Refseq Ids
-## that were taken from a Blast output file and converted into Kegg Ids through the use of the KEGGREST Package
+## The following section of this script will provide a list of Kegg Ortholog Ids, which were original Refseq Ids
+## that were taken from a Blast output file and first converted into Kegg Ids through the use of the KEGGREST Package
 library(dplyr)
 library("KEGGREST")
 
@@ -37,15 +37,13 @@ tstlist6 <- list()
 # }
 
 
-
-
 ## This way is more direct, possibly faster but you will not know how fast it is executing #################
 
 ## Lets test with a small sub-sample to see how fast
-##tstlist4 <- as.data.frame(as.character(tstlist3[1:100,]))
-##tstlist6 <- keggConv("genes", unlist(tstlist4), querySize = 100)
+tstlist4 <- as.data.frame(as.character(tstlist3[1:100,]))
+tstlist6 <- keggConv("genes", unlist(tstlist4), querySize = 100)
 
-tstlist6 <- keggConv("genes", unlist(tstlist3), querySize = 100)
+#tstlist6 <- keggConv("genes", unlist(tstlist3), querySize = 100)
 
 
 ## We then take the resulting kegg ids from the previous function (depending on which method you used it will either be
